@@ -1,0 +1,327 @@
+/* responsive.css */
+
+/* GLOBAL RESETS & OVERFLOW FIXES */
+html, body {
+  overflow-x: hidden !important;
+  max-width: 100% !important;
+  width: 100%;
+}
+
+section {
+  max-width: 100% !important;
+  overflow: hidden !important;
+  padding-left: 5% !important;
+  padding-right: 5% !important;
+  box-sizing: border-box;
+}
+
+/* Base resets for all structural containers */
+.vp-container,
+.ps-container,
+.eco-container,
+.sh-container,
+.adv-container,
+.mkt-grid,
+.cta-container,
+.contact-container,
+.footer-container,
+.market-map-container,
+.market-cards {
+  width: 100% !important;
+  max-width: 1200px !important;
+  margin-left: auto !important;
+  margin-right: auto !important;
+  box-sizing: border-box;
+}
+
+/* Ensure images and SVGs are responsive */
+img, svg, video, iframe {
+  max-width: 100% !important;
+  height: auto;
+}
+
+/* Typography Fluidity */
+h1, h2, h3, h4, h5, h6, p {
+  max-width: 100%;
+  word-wrap: break-word;
+}
+
+/* ========================================================
+   SPECIFIC SECTION FIXES FOR VARIOUS BREAKPOINTS
+   ======================================================== */
+
+/* Large Tablets & Small Laptops (max-width: 1024px) */
+@media screen and (max-width: 1024px) {
+  /* Cards Grid adjustments */
+  .vp-cards {
+    display: grid !important;
+    grid-template-columns: repeat(2, 1fr) !important;
+    gap: 1.5rem !important;
+  }
+  
+  .market-cards {
+    display: flex !important;
+    flex-wrap: wrap !important;
+    justify-content: center !important;
+    gap: 1.5rem !important;
+  }
+  
+  .m-card {
+    flex: 1 1 calc(50% - 1.5rem) !important;
+    min-width: 280px !important;
+  }
+
+  .ps-container, .eco-feature, .sh-panel, .contact-body, .cta-container {
+    display: flex !important;
+    flex-direction: column !important;
+    gap: 3rem !important;
+    align-items: center !important;
+    text-align: center !important;
+  }
+
+  /* Reset layout directions that were row/row-reverse */
+  .eco-feature.reverse, .sh-panel.reverse {
+    flex-direction: column !important;
+  }
+
+  .ps-text-col, .ps-visual-col,
+  .eco-text-col, .eco-visual-col,
+  .sh-text, .sh-visual,
+  .contact-left, .contact-right,
+  .cta-content, .cta-visual-assembly {
+    width: 100% !important;
+    max-width: 100% !important;
+    text-align: center !important;
+  }
+  
+  .ps-features {
+    display: grid !important;
+    grid-template-columns: 1fr 1fr !important;
+    gap: 1.5rem !important;
+    text-align: left !important;
+  }
+
+  .compare-ui {
+    display: flex !important;
+    flex-wrap: wrap !important;
+    gap: 1.5rem !important;
+    justify-content: center !important;
+  }
+
+  .comp-col {
+    flex: 1 1 300px !important;
+    max-width: 100% !important;
+  }
+
+  .mkt-grid {
+    display: flex !important;
+    flex-direction: column !important;
+    gap: 3rem !important;
+  }
+
+  .mkt-center, .mkt-pillar {
+    width: 100% !important;
+    position: static !important;
+    transform: none !important;
+  }
+}
+
+/* Tablets (max-width: 768px) */
+@media screen and (max-width: 768px) {
+  section {
+    padding-top: 4rem !important;
+    padding-bottom: 4rem !important;
+  }
+  
+  .hero {
+    padding-top: 7rem !important;
+    padding-bottom: 4rem !important;
+  }
+  
+  /* Hero section fixes */
+  .floating-food {
+    display: none !important; /* Hide floating foods that overlap on small screens as requested, or adjust them */
+  }
+  
+  .hero-title {
+    font-size: clamp(2.5rem, 8vw, 3.5rem) !important;
+  }
+  
+  /* Cards stacking */
+  .vp-cards {
+    grid-template-columns: 1fr !important;
+  }
+
+  .ps-features {
+    grid-template-columns: 1fr !important;
+  }
+
+  .market-cards {
+    flex-direction: column !important;
+  }
+
+  .m-card {
+    flex: 1 1 100% !important;
+    width: 100% !important;
+  }
+  
+  /* Contact layout */
+  .contact-body {
+    flex-direction: column !important;
+  }
+  
+  .contact-cards {
+    display: flex !important;
+    flex-direction: column !important;
+    gap: 1rem !important;
+  }
+  
+  .contact-right {
+    height: 400px !important;
+    width: 100% !important;
+  }
+  
+  spline-viewer {
+    width: 100% !important;
+    height: 100% !important;
+  }
+  
+  /* Footer layout */
+  .footer-container {
+    flex-direction: column !important;
+    align-items: center !important;
+    text-align: center !important;
+    gap: 2rem !important;
+  }
+
+  .footer-nav {
+    display: flex !important;
+    flex-direction: column !important;
+    gap: 2rem !important;
+    align-items: center !important;
+    text-align: center !important;
+  }
+  
+  .footer-links {
+    flex-direction: column !important;
+    gap: 1rem !important;
+  }
+  
+  /* Social Media icons stack or center */
+  .connect-col {
+    align-items: center !important;
+  }
+}
+
+/* Large Mobile (max-width: 600px) */
+@media screen and (max-width: 600px) {
+  /* Make sure background decorations don't cause scroll */
+  .sh-bg-image, .sh-bg-image-left,
+  .market-bg-image, .market-bg-image-left,
+  .adv-bg-image, .mkt-bg-image, .mkt-bg-image-right,
+  .cta-bg-image, .cta-bg-image-right,
+  .contact-bg-image, .footer-bg-image {
+    width: 300px !important;
+    height: 300px !important;
+    right: -20% !important;
+    opacity: 0.1 !important;
+  }
+
+  /* App Mockups & UI Boxes Scale down */
+  .phone-mockup, .eco-ui-box, .sh-card, .scanner-frame {
+    transform: scale(0.85) !important;
+    transform-origin: top center !important;
+    margin: 0 auto !important;
+  }
+
+  .india-map {
+    transform: scale(0.8) !important;
+    transform-origin: top center !important;
+  }
+  
+  /* Typography tweaks for readability */
+  h2 {
+    font-size: 2rem !important;
+    line-height: 1.2 !important;
+  }
+  
+  h3 {
+    font-size: 1.5rem !important;
+  }
+
+  /* Buttons */
+  .btn, .gradient-button, .hero-cta, .hero-cta-secondary, .sh-cta {
+    width: 100% !important;
+    display: flex !important;
+    justify-content: center !important;
+    padding: 1rem !important;
+    box-sizing: border-box !important;
+  }
+
+  .hero-actions, .cta-buttons {
+    flex-direction: column !important;
+    width: 100% !important;
+  }
+}
+
+/* Medium Mobile (max-width: 430px) */
+@media screen and (max-width: 430px) {
+  .store-badges {
+    flex-direction: column !important;
+    gap: 1rem !important;
+    width: 100% !important;
+  }
+  
+  .store-badge-wrapper {
+    width: 100% !important;
+    display: flex !important;
+    justify-content: center !important;
+  }
+  
+  .store-badge {
+    height: 55px !important; /* Slightly larger for easier tapping */
+  }
+
+  .phone-mockup, .eco-ui-box, .sh-card, .scanner-frame {
+    transform: scale(0.75) !important;
+  }
+}
+
+/* Small Mobile (max-width: 360px & 320px) */
+@media screen and (max-width: 360px) {
+  .hero-title {
+    font-size: 2.2rem !important;
+  }
+  
+  h2 {
+    font-size: 1.75rem !important;
+  }
+
+  .phone-mockup, .eco-ui-box, .sh-card, .scanner-frame {
+    transform: scale(0.65) !important;
+  }
+  
+  .btn, .gradient-button {
+    font-size: 0.9rem !important;
+  }
+}
+
+/* Keep floating food but position them safely so they don't overlap */
+@media screen and (max-width: 1024px) {
+  .floating-food {
+    display: block !important;
+  }
+  .f-wrap-1 { top: 5% !important; left: 5% !important; transform: scale(0.6) !important; }
+  .f-wrap-2 { top: 5% !important; right: 5% !important; transform: scale(0.6) !important; }
+  .f-wrap-3 { bottom: 5% !important; left: 5% !important; transform: scale(0.6) !important; }
+  .f-wrap-4 { bottom: 5% !important; right: 5% !important; transform: scale(0.6) !important; }
+  .f-wrap-5 { display: none !important; }
+  .f-wrap-6 { display: none !important; }
+}
+
+@media screen and (max-width: 600px) {
+  .f-wrap-1 { transform: scale(0.4) !important; }
+  .f-wrap-2 { transform: scale(0.4) !important; }
+  .f-wrap-3 { transform: scale(0.4) !important; }
+  .f-wrap-4 { transform: scale(0.4) !important; }
+}
